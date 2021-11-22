@@ -5,7 +5,6 @@ using UnityEngine;
 public class RandomEvents : MonoBehaviour
 {
 
-    public Code code;
     public RandomEventAsset RandomEventAsset;
     public GameObject Notification;
 
@@ -16,7 +15,7 @@ public class RandomEvents : MonoBehaviour
         {
             if (RandomEventAsset.EffectOnStock < 0)
             {
-                code.averageStock -= RandomEventAsset.EffectOnStock;
+                Code.Instance.averageStockValue -= RandomEventAsset.EffectOnStock;
             }
         }
     }

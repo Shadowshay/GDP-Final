@@ -6,8 +6,8 @@ public class Code : MonoBehaviour
 {
     public static Code Instance { get; private set; }
 
-    public int cash = 1000;
-    public int netWorth = 1000; 
+    public float cash = 1000;
+    public float netWorth = 1000; 
     public int daysPassed = 0;
     public TMPro.TextMeshPro Date ;
 
@@ -17,9 +17,15 @@ public class Code : MonoBehaviour
     public int averageStock = 0;
 
     // value of stock 
-    public int goodStockValue = 0;
-    public int badStockValue = 0;
-    public int averageStockValue = 0;
+    public float goodStockValue = 750;
+    public float badStockValue = 1000;
+    public float averageStockValue = 800;
+
+    public List<float> StockValue  = new List<float>();
+    public List<float> StockFluctuations = new List<float>();
+
+
+    
 
     // singleton that other classes can take variables from
     private void Awake()
@@ -48,39 +54,39 @@ public class Code : MonoBehaviour
     {
         if (Random.Range(-1, 2) > 0)
         {
-            int increase = Random.Range(1, 10) * 1 / 100 * goodStockValue;
+            float increase = Random.Range(1, 10) * 1 / 100 * goodStockValue;
             goodStockValue += increase;
             netWorth += increase * goodStock ;
         }
         else
         {
-            int decrease = - Random.Range(1, 10) * 1 / 100 * goodStockValue;
+            float decrease = - Random.Range(1, 10) * 1 / 100 * goodStockValue;
             goodStockValue += decrease;
             netWorth -= decrease * goodStock;
         }
 
         if (Random.Range(-1, 2) > 0)
         {
-            int increase = Random.Range(1, 10) * 1 / 100 * averageStockValue;
+            float increase = Random.Range(1, 10) * 1 / 100 * averageStockValue;
             averageStockValue += increase;
             netWorth += increase * averageStock;
         }
         else
         {
-            int decrease = -Random.Range(1, 10) * 1 / 100 * averageStockValue;
+            float decrease = -Random.Range(1, 10) * 1 / 100 * averageStockValue;
             averageStockValue += decrease;
             netWorth -= decrease * averageStock;
         }
 
         if (Random.Range(-1, 2) > 0)
         {
-            int increase = Random.Range(1, 10) * 1 / 100 * badStockValue;
+            float increase = Random.Range(1, 10) * 1 / 100 * badStockValue;
             badStockValue += increase;
             netWorth += increase * badStock;
         }
         else
         {
-            int decrease = -Random.Range(1, 10) * 1 / 100 * badStockValue;
+            float decrease = -Random.Range(1, 10) * 1 / 100 * badStockValue;
             badStockValue += decrease;
             netWorth -= decrease * badStock;
         }
