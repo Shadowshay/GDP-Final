@@ -5,7 +5,6 @@ using UnityEngine;
 public class RandomEvents : MonoBehaviour
 {
 
-
     public RandomEventAsset RandomEventAsset;
     public GameObject Notification;
 

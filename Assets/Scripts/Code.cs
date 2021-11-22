@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Code : MonoBehaviour
 {
@@ -11,8 +10,6 @@ public class Code : MonoBehaviour
     public float netWorth = 1000; 
     public int daysPassed = 0;
     public TMPro.TextMeshPro Date ;
-    public Text cashText;
-    public int unitsOwned = 0;
 
     // number of unit of stocks for each stock pattern
     public int goodStock = 0;
@@ -20,9 +17,15 @@ public class Code : MonoBehaviour
     public int averageStock = 0;
 
     // value of stock 
-    public float goodStockValue = 0;
-    public float badStockValue = 0;
-    public float averageStockValue = 0;
+    public float goodStockValue = 750;
+    public float badStockValue = 1000;
+    public float averageStockValue = 800;
+
+    public List<float> StockValue  = new List<float>();
+    public List<float> StockFluctuations = new List<float>();
+
+
+    
 
     // singleton that other classes can take variables from
     private void Awake()
@@ -90,11 +93,9 @@ public class Code : MonoBehaviour
 
     }
 
-
     // Update is called once per frame
     void Update()
     {
-        cashText.text = "Cash: " + cash;
+        
     }
-
 }
