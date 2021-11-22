@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Code : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Code : MonoBehaviour
     public float netWorth = 1000; 
     public int daysPassed = 0;
     public TMPro.TextMeshPro Date ;
+    public Text cashText;
+    public int unitsOwned = 0;
 
     // number of unit of stocks for each stock pattern
     public int goodStock = 0;
@@ -86,5 +89,12 @@ public class Code : MonoBehaviour
         }
 
     }
-s
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        cashText.text = "Cash: " + cash;
+    }
+
 }

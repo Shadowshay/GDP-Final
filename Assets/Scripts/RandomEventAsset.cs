@@ -9,6 +9,6 @@ public class RandomEventAsset : ScriptableObject
 {
 	public int EventID;
 	public string Description;
-	public float EffectOnStock;
+	public int EffectOnStock;
 	public float EffectOnCash;
 }
