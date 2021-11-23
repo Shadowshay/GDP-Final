@@ -63,11 +63,17 @@ public class Code : MonoBehaviour
     void calculateEarnings()
     {
 
+        //here
+        float change = RandomEvents.Instance.returnEffectOnStock();
+        Debug.Log(change);
+
         if (Random.Range(1, 4) > 1)
         {
             float increase = Random.Range(1, 11) / 100f * goodStockValue;
             increase = Mathf.Round(increase * 10f) / 10f;
-
+            Debug.Log(increase);
+            increase += change;
+            Debug.Log(increase);
             goodStockValue += increase;
             goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
 
@@ -81,13 +87,13 @@ public class Code : MonoBehaviour
         {
             float decrease = -Random.Range(1, 11) / 100f * goodStockValue;
             decrease = Mathf.Round(decrease * 10f) / 10f;
-
+            decrease += change;
             goodStockValue += decrease;
             goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
 
             StockValue.Add(goodStockValue);
             StockFluctuations.Add(decrease);
-            netWorth += decrease * goodStock;
+            netWorth += (decrease) * goodStock;
             netWorth = Mathf.Round(netWorth * 10f) / 10f;
             Debug.Log(netWorth);
         }

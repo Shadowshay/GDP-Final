@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RandomEvents/random event")]
+[CreateAssetMenu(menuName = "RandomEvents")]
 [System.Serializable]
 
 public class RandomEventAsset : ScriptableObject
