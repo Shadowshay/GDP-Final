@@ -33,7 +33,7 @@ public class RandomEvents : MonoBehaviour
 	public float returnEffectOnStock()
 	{
 		//get random event id
-		int i = Random.Range(1, randomEventAsset.Length);
+		int i = Random.Range(0, randomEventAsset.Length);
 		returnValue += randomEventAsset[i].EffectOnStock;
 		Debug.Log(returnValue);
 		return returnValue;
