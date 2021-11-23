@@ -7,7 +7,6 @@ public class OpenPopup : MonoBehaviour
 {
     public GameObject PopupPanel;
     
-    
     public void OpenPanel()
     {
         if (PopupPanel != null)
@@ -20,6 +19,10 @@ public class OpenPopup : MonoBehaviour
                     if (UnityEngine.Random.Range(1, 4) > 1)
                     {
                         float increase = UnityEngine.Random.Range(1, 11) / 100f * (float)goodStockValue;
+                        // random event changing money here
+                        // increase += methodName.effectOnCash.
+                        
+                        
                         increase = Mathf.Round(increase*10f)/10f;
                         //Debug.Log(increase);
                         goodStockValue += (float)increase;

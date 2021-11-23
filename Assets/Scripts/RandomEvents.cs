@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class RandomEvents : MonoBehaviour
 {
+    public static RandomEvents Instance { get; private set; }
 
     public RandomEventAsset RandomEventAsset;
     public GameObject Notification;
 
-    // Start is called before the first frame update
-    void Start()
+
+    // singleton that other classes can take variables from
+    private void Awake()
     {
-        if (Random.Range(1, 100) == RandomEventAsset.EventID)
+        if (Instance == null)
         {
-            if (RandomEventAsset.EffectOnStock < 0)
-            {
-                Code.Instance.averageStockValue -= RandomEventAsset.EffectOnStock;
-            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
+
+    //public float returnEffectOnStockPrice()
+    //{
+    //    if (Random.Range(1, 100) == RandomEventAsset.EventID)
+    //    {
+    //        if (RandomEventAsset.EffectOnStock < 0)
+    //        {
+    //            Code.Instance.goodStockValue -= RandomEventAsset.EffectOnStock;
+    //        }
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
