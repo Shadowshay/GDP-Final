@@ -1,63 +1,69 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class BuySell : MonoBehaviour
-//{
-//    public Code code;
-//    public GameObject Popup;
-
-//    // Start is called before the first frame update
-//    void Start()
-//    {
-        
-//    }
-
+public class BuySell : MonoBehaviour
+{
     
-//    //Call function after buy button is clicked
-//    public void Buy()
-//    {
-        
-//        if (code.cash < code.averageStockValue)
-//        {
-//            PopupBuyPanel();
-//        }
-//        else
-//        {
-//            code.cash -= code.averageStockValue;
-//            code.unitsOwned++;
-//        }
-//    }
+    public GameObject Popup;
 
-//    //Call function after sell button is clicked
-//    public void Sell()
-//    {
-//        if (code.unitsOwned > 0)
-//        {
-//            code.cash += code.averageStockValue;
-//            code.unitsOwned--;
-//        }
-//        else
-//        {
-//            PopupSellPanel();
-//        }
-//    }
+    // Start is called before the first frame update
+    void Start()
+    {
 
-//    //Call function if no units to sell
-//    void PopupSellPanel()
-//    {
-//        Popup.SetActive(true);
-//    }
+    }
 
-//    //Call function if no cash to buy
-//    void PopupBuyPanel()
-//    {
-//        Popup.SetActive(true);
-//    }
 
-//    // Update is called once per frame
-//    void Update()
-//    {
+    //Call function after buy button is clicked
+    public void BuyGoodStock()
+    {
 
-//    }
-//}
+        if (Code.Instance.cash < Code.Instance.StockValue[9])
+        {
+            PopupBuyPanel();
+        }
+        else
+        {
+            Debug.Log(Code.Instance.cash);
+            Code.Instance.cash -= Code.Instance.StockValue[9];
+            Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
+            Code.Instance.goodStock++;
+            Debug.Log(Code.Instance.cash);
+        }
+    }
+
+    //Call function after sell button is clicked
+    public void SellGoodStock()
+    {
+        if (Code.Instance.goodStock > 0)
+        {
+            Debug.Log(Code.Instance.cash);
+            Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
+            Code.Instance.cash += Code.Instance.StockValue[9];
+            Code.Instance.goodStock--;
+            Debug.Log(Code.Instance.cash);
+        }
+        else
+        {
+            PopupSellPanel();
+        }
+    }
+
+    //Call function if no units to sell
+    void PopupSellPanel()
+    {
+        Popup.SetActive(true);
+    }
+
+    //Call function if no cash to buy
+    void PopupBuyPanel()
+    {
+        Popup.SetActive(true);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+}

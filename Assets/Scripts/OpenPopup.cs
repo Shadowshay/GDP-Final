@@ -21,7 +21,10 @@ public class OpenPopup : MonoBehaviour
                     {
                         float increase = UnityEngine.Random.Range(1, 11) / 100f * (float)goodStockValue;
                         increase = Mathf.Round(increase*10f)/10f;
+                        //Debug.Log(increase);
                         goodStockValue += (float)increase;
+                        goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
+                        //Debug.Log(goodStockValue);
                         Code.Instance.StockValue.Add(goodStockValue);
                         Code.Instance.StockFluctuations.Add(increase);
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(2).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockValue[i].ToString());
@@ -32,6 +35,7 @@ public class OpenPopup : MonoBehaviour
                         float decrease = -UnityEngine.Random.Range(1, 11) /100f * (float)goodStockValue;
                         decrease = Mathf.Round(decrease * 10f) / 10f;
                         goodStockValue += (float)decrease;
+                        goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
                         Code.Instance.StockValue.Add(goodStockValue);
                         Code.Instance.StockFluctuations.Add(decrease);
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(2).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockValue[i].ToString());
