@@ -71,10 +71,10 @@ public class Code : MonoBehaviour
         {
             float increase = Random.Range(1, 11) / 100f * goodStockValue;
             increase = Mathf.Round(increase * 10f) / 10f;
-            Debug.Log(increase);
             increase += change;
-            Debug.Log(increase);
+            Debug.Log(goodStockValue);
             goodStockValue += increase;
+            Debug.Log(goodStockValue);
             goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
 
             StockValue.Add(goodStockValue);
