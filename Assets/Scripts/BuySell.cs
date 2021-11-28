@@ -24,12 +24,12 @@ public class BuySell : MonoBehaviour
         }
         else
         {
-            Debug.Log(Code.Instance.cash);
             Code.Instance.cash -= Code.Instance.StockValue[9];
             Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
             Code.Instance.goodStock++;
-            Debug.Log(Code.Instance.cash);
+            Code.Instance.nextDay();
         }
+
     }
 
     //Call function after sell button is clicked
@@ -37,11 +37,10 @@ public class BuySell : MonoBehaviour
     {
         if (Code.Instance.goodStock > 0)
         {
-            Debug.Log(Code.Instance.cash);
             Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
             Code.Instance.cash += Code.Instance.StockValue[9];
             Code.Instance.goodStock--;
-            Debug.Log(Code.Instance.cash);
+            Code.Instance.nextDay();
         }
         else
         {
@@ -53,6 +52,7 @@ public class BuySell : MonoBehaviour
     void PopupSellPanel()
     {
         Popup.SetActive(true);
+
     }
 
     //Call function if no cash to buy
