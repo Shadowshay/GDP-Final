@@ -34,7 +34,7 @@ public class WindowGraph : MonoBehaviour
         gameObject.GetComponent<Image>().sprite = dotColor;
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = anchoredPosition;
-        rectTransform.sizeDelta = new Vector2(13, 13);
+        rectTransform.sizeDelta = new Vector2(0.3f, 0.3f);
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
         return gameObject;
@@ -52,12 +52,12 @@ public class WindowGraph : MonoBehaviour
         }
         float graphHeight = graphContainer.sizeDelta.y;
         float yMaximum = 100f;
-        float xSize = 50f;
+        float xSize = 1.85f;
 
         GameObject lastCircle = null;
         for (int i = 0; i < valueList.Count; i++)
         {
-            float xPosition = 45f + i * xSize;
+            float xPosition = 0.0045f + i * xSize;
             float yPosition = (valueList[i] / yMaximum) * graphHeight;
             if (i == 0)
             {
@@ -70,7 +70,7 @@ public class WindowGraph : MonoBehaviour
                 RectTransform dashX = Instantiate(dashTemplateX);  //CODE TO DRAW THE DASHES
                 dashX.SetParent(graphContainer, false);
                 dashX.gameObject.SetActive(true);
-                dashX.anchoredPosition = new Vector2(xPosition, -20f);
+                dashX.anchoredPosition = new Vector2(xPosition, -0.2f);
             }
             else if ((valueList[i - 1] < valueList[i]) && i >= 1)
             {
@@ -83,7 +83,7 @@ public class WindowGraph : MonoBehaviour
                 RectTransform dashX = Instantiate(dashTemplateX);  //CODE TO DRAW THE DASHES
                 dashX.SetParent(graphContainer, false);
                 dashX.gameObject.SetActive(true);
-                dashX.anchoredPosition = new Vector2(xPosition, -20f);
+                dashX.anchoredPosition = new Vector2(xPosition, -0.2f);
             }
             else if ((valueList[i - 1] > valueList[i]) && i >= 1)
             {
@@ -96,7 +96,7 @@ public class WindowGraph : MonoBehaviour
                 RectTransform dashX = Instantiate(dashTemplateX);  //CODE TO DRAW THE DASHES
                 dashX.SetParent(graphContainer, false);
                 dashX.gameObject.SetActive(true);
-                dashX.anchoredPosition = new Vector2(xPosition, -20f);
+                dashX.anchoredPosition = new Vector2(xPosition, -0.2f);
             }
         }
         int seperatorCount = 10; //Code for Y Axis 
@@ -106,13 +106,13 @@ public class WindowGraph : MonoBehaviour
             labelY.SetParent(graphContainer, false);
             labelY.gameObject.SetActive(true);
             float normalizedValue = i * 1f / seperatorCount;
-            labelY.anchoredPosition = new Vector2(-7f, normalizedValue * graphHeight);
+            labelY.anchoredPosition = new Vector2(-0.5f, normalizedValue * graphHeight);
             labelY.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
 
             RectTransform dashY = Instantiate(dashTemplateY);  //CODE TO DRAW THE DASHES
             dashY.SetParent(graphContainer, false);
             dashY.gameObject.SetActive(true);
-            dashY.anchoredPosition = new Vector2(-4f, normalizedValue * graphHeight);
+            dashY.anchoredPosition = new Vector2(-0.3f, normalizedValue * graphHeight);
         }
     }
 
@@ -126,7 +126,7 @@ public class WindowGraph : MonoBehaviour
         float distance = Vector2.Distance(dotPositionA, dotPositionB);
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
-        rectTransform.sizeDelta = new Vector2(distance, 3f);
+        rectTransform.sizeDelta = new Vector2(distance, 0.03f);
         rectTransform.anchoredPosition = dotPositionA + direction * distance * .5f;
         float n = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rectTransform.localEulerAngles = new Vector3(0, 0, n);
