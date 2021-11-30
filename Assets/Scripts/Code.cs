@@ -7,6 +7,9 @@ public class Code : MonoBehaviour
 {
     public static Code Instance { get; private set; }
 
+
+    public int luckMultiplier = 11;
+
     public float cash = 1000;
     public float netWorth = 1000; 
     public int daysPassed = 0;
@@ -67,9 +70,9 @@ public class Code : MonoBehaviour
         float change = RandomEvents.Instance.returnEffectOnStock();
         Debug.Log(change);
 
-        if (Random.Range(1, 4) > 1)
+        if (Random.Range(1, 5) > 2)
         {
-            float increase = Random.Range(1, 11) / 100f * goodStockValue;
+            float increase = Random.Range(1, luckMultiplier) / 100f * goodStockValue;
             increase = Mathf.Round(increase * 10f) / 10f;
             increase += change;
             Debug.Log(goodStockValue);
@@ -85,7 +88,7 @@ public class Code : MonoBehaviour
         }
         else
         {
-            float decrease = -Random.Range(1, 11) / 100f * goodStockValue;
+            float decrease = -Random.Range(1, luckMultiplier) / 100f * goodStockValue;
             decrease = Mathf.Round(decrease * 10f) / 10f;
             decrease += change;
             goodStockValue += decrease;
