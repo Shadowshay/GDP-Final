@@ -23,7 +23,7 @@ public class ProgressBar : MonoBehaviour
     {
         
         slider.value = Code.Instance.netWorth;
-        progressText.text = "CASH: " + Code.Instance.cash + "\n NET WORTH GOAL: " + Code.Instance.netWorth;
+        progressText.text = "CASH: " + Code.Instance.cash + "\n NET WORTH GOAL: " + Code.Instance.netWorth + "/" + slider.maxValue;
         Debug.Log(Code.Instance.netWorth);
     }
 }
