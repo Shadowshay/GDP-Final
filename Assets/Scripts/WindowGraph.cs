@@ -23,7 +23,7 @@ public class WindowGraph : MonoBehaviour
         dashTemplateX = graphContainer.Find("Dash_Template_X").GetComponent<RectTransform>();
         dashTemplateY = graphContainer.Find("Dash_Template_Y").GetComponent<RectTransform>();
 
-        ShowGraph(Code.Instance.StockValue);
+        ShowGraph(Code.Instance.StockValue, (int _i) => "Day "+ (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
     }
 
     private GameObject CreateCircle(Vector2 anchoredPosition, Sprite dotColor)
@@ -43,14 +43,14 @@ public class WindowGraph : MonoBehaviour
     {
         if (getAxisLabelX == null)
         {
-            getAxisLabelX = delegate (int _i) { return _i.ToString(); };
+            getAxisLabelX = delegate (int _i) { return _i.ToString();};
         }
         if (getAxisLabelY == null)
         {
             getAxisLabelY = delegate (float _f) { return Mathf.RoundToInt(_f).ToString(); };
         }
         float graphHeight = graphContainer.sizeDelta.y;
-        float yMaximum = 100f;
+        float yMaximum = 1000f;
         float xSize = 1.85f;
 
         GameObject lastCircle = null;
@@ -70,6 +70,12 @@ public class WindowGraph : MonoBehaviour
                 dashX.SetParent(graphContainer, false);
                 dashX.gameObject.SetActive(true);
                 dashX.anchoredPosition = new Vector2(xPosition, -0.2f);
+
+                RectTransform labelX = Instantiate(labelTemplateX); //CODE TO DRAW LABELS
+                labelX.SetParent(graphContainer, false);
+                labelX.gameObject.SetActive(true);
+                labelX.anchoredPosition = new Vector2(xPosition, -0.3f);
+                labelX.GetComponent<Text>().text = getAxisLabelX(i);
             }
             else if ((valueList[i - 1] < valueList[i]) && i >= 1)
             {
@@ -83,6 +89,12 @@ public class WindowGraph : MonoBehaviour
                 dashX.SetParent(graphContainer, false);
                 dashX.gameObject.SetActive(true);
                 dashX.anchoredPosition = new Vector2(xPosition, -0.2f);
+
+                RectTransform labelX = Instantiate(labelTemplateX); //CODE TO DRAW LABELS
+                labelX.SetParent(graphContainer, false);
+                labelX.gameObject.SetActive(true);
+                labelX.anchoredPosition = new Vector2(xPosition, -0.3f);
+                labelX.GetComponent<Text>().text = getAxisLabelX(i);
             }
             else if ((valueList[i - 1] > valueList[i]) && i >= 1)
             {
@@ -96,6 +108,11 @@ public class WindowGraph : MonoBehaviour
                 dashX.SetParent(graphContainer, false);
                 dashX.gameObject.SetActive(true);
                 dashX.anchoredPosition = new Vector2(xPosition, -0.2f);
+                RectTransform labelX = Instantiate(labelTemplateX); //CODE TO DRAW LABELS
+                labelX.SetParent(graphContainer, false);
+                labelX.gameObject.SetActive(true);
+                labelX.anchoredPosition = new Vector2(xPosition, -0.3f);
+                labelX.GetComponent<Text>().text = getAxisLabelX(i);
             }
         }
         int seperatorCount = 10; //Code for Y Axis 
@@ -106,7 +123,7 @@ public class WindowGraph : MonoBehaviour
             labelY.gameObject.SetActive(true);
             float normalizedValue = i * 1f / seperatorCount;
             labelY.anchoredPosition = new Vector2(-0.5f, normalizedValue * graphHeight);
-            labelY.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
+            labelY.GetComponent<Text>().text = getAxisLabelY(normalizedValue * yMaximum);
 
             RectTransform dashY = Instantiate(dashTemplateY);  //CODE TO DRAW THE DASHES
             dashY.SetParent(graphContainer, false);
