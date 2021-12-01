@@ -23,8 +23,7 @@ public class WindowGraph : MonoBehaviour
         dashTemplateX = graphContainer.Find("Dash_Template_X").GetComponent<RectTransform>();
         dashTemplateY = graphContainer.Find("Dash_Template_Y").GetComponent<RectTransform>();
 
-        List<int> valueList = new List<int>() { 5, 20, 50, 45, 30, 60, 90, 70, 60, 10 };
-        ShowGraph(valueList);
+        ShowGraph(Code.Instance.StockValue);
     }
 
     private GameObject CreateCircle(Vector2 anchoredPosition, Sprite dotColor)
@@ -40,7 +39,7 @@ public class WindowGraph : MonoBehaviour
         return gameObject;
     }
 
-    private void ShowGraph(List<int> valueList, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null)
+    private void ShowGraph(List<float> valueList, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null)
     {
         if (getAxisLabelX == null)
         {
