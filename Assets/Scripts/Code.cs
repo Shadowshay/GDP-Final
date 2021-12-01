@@ -68,23 +68,19 @@ public class Code : MonoBehaviour
 
         //here
         float change = RandomEvents.Instance.returnEffectOnStock();
-        Debug.Log(change);
 
-        if (Random.Range(1, 5) > 2)
+        if (Random.Range(1, 6) > 2)
         {
             float increase = Random.Range(1, luckMultiplier) / 100f * goodStockValue;
             increase = Mathf.Round(increase * 10f) / 10f;
             increase += change;
-            Debug.Log(goodStockValue);
             goodStockValue += increase;
-            Debug.Log(goodStockValue);
             goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
 
             StockValue.Add(goodStockValue);
             StockFluctuations.Add(increase);
             netWorth += increase * goodStock ;
             netWorth = Mathf.Round(netWorth * 10f) / 10f;
-            Debug.Log(netWorth);
         }
         else
         {
@@ -98,7 +94,6 @@ public class Code : MonoBehaviour
             StockFluctuations.Add(decrease);
             netWorth += (decrease) * goodStock;
             netWorth = Mathf.Round(netWorth * 10f) / 10f;
-            Debug.Log(netWorth);
         }
 
 
