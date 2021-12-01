@@ -16,7 +16,7 @@ public class OpenPopup : MonoBehaviour
                 
                 for (int i = 0; i <= 9; i++)
                 {
-                    if (UnityEngine.Random.Range(1, 5) > 2)
+                    if (UnityEngine.Random.Range(1, 6) > 2)
                     {
                         float increase = UnityEngine.Random.Range(1, 11) / 100f * (float)Code.Instance.goodStockValue;
                         // random event changing money here

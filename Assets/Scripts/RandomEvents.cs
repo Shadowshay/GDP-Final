@@ -8,7 +8,6 @@ public class RandomEvents : MonoBehaviour
 
 	public RandomEventAsset[] randomEventAsset;
 	private float returnValue;
-	private int eventiD;
 	//public GameObject Notification;
 
 	// singleton that other classes can take variables from
@@ -27,12 +26,13 @@ public class RandomEvents : MonoBehaviour
 
 	void Start()
 	{
-		returnValue = 0;
+		
 	}
 
 	public float returnEffectOnStock()
 	{
 		//get random event id
+		returnValue = 0;
 		int i = Random.Range(0, randomEventAsset.Length);
 		returnValue += randomEventAsset[i].EffectOnStock;
 		Debug.Log(returnValue);
