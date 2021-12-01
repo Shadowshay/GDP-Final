@@ -21,14 +21,9 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Code.Instance.cash <= 1000)
-        {
-            slider.value = slider.value = 1000;
-        }
-        else
-        {
-            slider.value = Code.Instance.cash;
-        }
-        progressText.text = "Goal: " + Code.Instance.cash + "/" + slider.maxValue;
+        
+        slider.value = Code.Instance.netWorth;
+        progressText.text = "CASH: " + Code.Instance.cash + "\n NET WORTH GOAL: " + Code.Instance.netWorth + "/" + slider.maxValue;
+        Debug.Log(Code.Instance.netWorth);
     }
 }
