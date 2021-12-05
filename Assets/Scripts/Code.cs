@@ -57,7 +57,7 @@ public class Code : MonoBehaviour
         calculateEarnings();
         daysPassed += 1;
         Date.GetComponent<TextMeshProUGUI>().SetText("DATE: " + daysPassed);
-
+        Notifications.Instance.OpenNotif();
 
     }
 
@@ -68,6 +68,7 @@ public class Code : MonoBehaviour
 
         //here
         float change = RandomEvents.Instance.returnEffectOnStock();
+        Debug.Log(RandomEvents.Instance.eventID);
 
         if (Random.Range(1, 6) > 2)
         {

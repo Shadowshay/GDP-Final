@@ -7,6 +7,9 @@ public class RandomEvents : MonoBehaviour
 	public static RandomEvents Instance { get; private set; }
 
 	public RandomEventAsset[] randomEventAsset;
+	public int eventID;
+	public string eventDisc;
+	private int ID;
 	private float returnValue;
 	//public GameObject Notification;
 
@@ -33,9 +36,10 @@ public class RandomEvents : MonoBehaviour
 	{
 		//get random event id
 		returnValue = 0;
-		int i = Random.Range(0, randomEventAsset.Length);
-		returnValue += randomEventAsset[i].EffectOnStock;
-		Debug.Log(returnValue);
+		ID = Random.Range(0, randomEventAsset.Length);
+		eventID = randomEventAsset[ID].EventID;
+		eventDisc = randomEventAsset[ID].Description;
+		returnValue += randomEventAsset[ID].EffectOnStock;
 		return returnValue;
 	}
 

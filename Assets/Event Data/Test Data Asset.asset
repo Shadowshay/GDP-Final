@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test Data Asset
   m_EditorClassIdentifier: 
   EventID: 1
-  Description: This is a test thing
+  Description: 
   EffectOnStock: 0
   EffectOnCash: 0

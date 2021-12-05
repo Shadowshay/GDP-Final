@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test bad
   m_EditorClassIdentifier: 
   EventID: 2
-  Description: 
+  Description: bad thing
   EffectOnStock: -10
   EffectOnCash: 0
