@@ -10,6 +10,11 @@ public class Perks : MonoBehaviour
     public GameObject companyC;
     public GameObject noMoneyText;
 
+    public GameObject PerkInsurance;
+    public GameObject PerkGamblersLuck;
+    public GameObject PerkInvestingKnowledge;
+
+
     // singleton that other classes can take variables from
     private void Awake()
     {
@@ -26,9 +31,12 @@ public class Perks : MonoBehaviour
 
     public void gamblersLuck()
     {
-        if(Code.Instance.cash>= 500) 
+        bool bought = false;
+        if (Code.Instance.cash>= 500 && bought == false) 
         { 
         Code.Instance.luckMultiplier = 15;
+            Code.Instance.cash -= 500f;
+            Code.Instance.netWorth -= 500f;
         }
         else
         {
@@ -38,10 +46,13 @@ public class Perks : MonoBehaviour
 
     public void buyInsurance()
     {
+        bool bought = false;
 
-        if (Code.Instance.cash >= 500)
+        if (Code.Instance.cash >= 500 && bought == false)
         {
             hasInsurance = true;
+            Code.Instance.cash -= 500f;
+            Code.Instance.netWorth -= 500f;
         }
         else
         {
@@ -51,10 +62,12 @@ public class Perks : MonoBehaviour
 
     public void investingKnowledge()
     {
-
-        if (Code.Instance.cash >= 500)
+        bool bought = false;
+        if (Code.Instance.cash >= 500 && bought == false)
         {
             companyC.SetActive(false);
+            Code.Instance.cash -= 500f;
+            Code.Instance.netWorth -= 500f;
         }
         else
         {
