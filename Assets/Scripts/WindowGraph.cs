@@ -24,6 +24,7 @@ public class WindowGraph : MonoBehaviour
         dashTemplateX = graphContainer.Find("Dash_Template_X").GetComponent<RectTransform>();
         dashTemplateY = graphContainer.Find("Dash_Template_Y").GetComponent<RectTransform>();
         gameObjectList = new List<GameObject>();
+        
 
         ShowGraph(Code.Instance.StockValue, (int _i) => "Day "+ (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
     }
@@ -60,8 +61,7 @@ public class WindowGraph : MonoBehaviour
 
         foreach (GameObject graphObject in gameObjectList)
         {
-            Debug.Log(graphObject);
-            //Destroy(graphObject);
+            Destroy(graphObject);
         }
         gameObjectList.Clear();
 
@@ -119,7 +119,7 @@ public class WindowGraph : MonoBehaviour
                 if (lastCircle != null)
                 {
                     GameObject dotConnectionGameObject = CreateDotConnection(lastCircle.GetComponent<RectTransform>().anchoredPosition, circleGameObject.GetComponent<RectTransform>().anchoredPosition);
-                    gameObjectList.Add(dotConnectionGameObject);
+                   gameObjectList.Add(dotConnectionGameObject);
                 }
                 lastCircle = circleGameObject;
                 RectTransform dashX = Instantiate(dashTemplateX);  //CODE TO DRAW THE DASHES
@@ -192,6 +192,6 @@ public class WindowGraph : MonoBehaviour
         rectTransform.anchoredPosition = dotPositionA + direction * distance * .5f;
         float n = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rectTransform.localEulerAngles = new Vector3(0, 0, n);
-        return gameObject;
+        return connection;
     }
 }
