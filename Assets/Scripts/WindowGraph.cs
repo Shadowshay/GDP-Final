@@ -16,7 +16,7 @@ public class WindowGraph : MonoBehaviour
     private RectTransform dashTemplateY;
     private List<GameObject> gameObjectList;
 
-    private void Awake()//Change to some other caller
+    public void Awake()//Change to some other caller
     {
         graphContainer = transform.Find("Graph_Container").GetComponent<RectTransform>();
         labelTemplateX = graphContainer.Find("Label_Template_X").GetComponent<RectTransform>();
@@ -28,7 +28,13 @@ public class WindowGraph : MonoBehaviour
         ShowGraph(Code.Instance.StockValue, (int _i) => "Day "+ (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
     }
 
-    private GameObject CreateCircle(Vector2 anchoredPosition, Sprite dotColor)
+    public void showGraphForA()
+    {
+        // show graph for company A
+        ShowGraph(Code.Instance.StockValue, (int _i) => "Day " + (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
+    }
+
+    public GameObject CreateCircle(Vector2 anchoredPosition, Sprite dotColor)
     {
         GameObject gameObject = new GameObject("circle", typeof(Image));
         gameObject.transform.SetParent(graphContainer, false);
@@ -41,7 +47,7 @@ public class WindowGraph : MonoBehaviour
         return gameObject;
     }
 
-    private void ShowGraph(List<float> valueList, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null)
+    public void ShowGraph(List<float> valueList, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null)
     {
         if (getAxisLabelX == null)
         {
@@ -54,7 +60,8 @@ public class WindowGraph : MonoBehaviour
 
         foreach (GameObject graphObject in gameObjectList)
         {
-            Destroy(graphObject);
+            Debug.Log(graphObject);
+            //Destroy(graphObject);
         }
         gameObjectList.Clear();
 
@@ -171,7 +178,7 @@ public class WindowGraph : MonoBehaviour
         }
     }
 
-    private GameObject CreateDotConnection(Vector2 dotPositionA, Vector2 dotPositionB)
+    public GameObject CreateDotConnection(Vector2 dotPositionA, Vector2 dotPositionB)
     {
         GameObject connection = new GameObject("dotConnection", typeof(Image));
         connection.transform.SetParent(graphContainer, false);
