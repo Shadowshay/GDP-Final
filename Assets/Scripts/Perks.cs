@@ -8,6 +8,7 @@ public class Perks : MonoBehaviour
 
     public bool hasInsurance = false;
     public GameObject companyC;
+    public GameObject noMoneyText;
 
     // singleton that other classes can take variables from
     private void Awake()
@@ -25,17 +26,40 @@ public class Perks : MonoBehaviour
 
     public void gamblersLuck()
     {
+        if(Code.Instance.cash>= 500) 
+        { 
         Code.Instance.luckMultiplier = 15;
+        }
+        else
+        {
+            noMoneyText.SetActive(true);
+        }
     }
 
     public void buyInsurance()
     {
-        hasInsurance = true;
+
+        if (Code.Instance.cash >= 500)
+        {
+            hasInsurance = true;
+        }
+        else
+        {
+            noMoneyText.SetActive(true);
+        }
     }
 
     public void investingKnowledge()
     {
-        companyC.SetActive(false);
+
+        if (Code.Instance.cash >= 500)
+        {
+            companyC.SetActive(false);
+        }
+        else
+        {
+            noMoneyText.SetActive(true);
+        }
     }
 
 
