@@ -37,6 +37,8 @@ public class Perks : MonoBehaviour
         Code.Instance.luckMultiplier = 15;
             Code.Instance.cash -= 500f;
             Code.Instance.netWorth -= 500f;
+            PerkGamblersLuck.SetActive(false);
+            bought = true;
         }
         else
         {
@@ -53,6 +55,8 @@ public class Perks : MonoBehaviour
             hasInsurance = true;
             Code.Instance.cash -= 500f;
             Code.Instance.netWorth -= 500f;
+            PerkInsurance.SetActive(false);
+            bought = true;
         }
         else
         {
@@ -68,6 +72,8 @@ public class Perks : MonoBehaviour
             companyC.SetActive(false);
             Code.Instance.cash -= 500f;
             Code.Instance.netWorth -= 500f;
+            PerkInvestingKnowledge.SetActive(false);
+            bought = true;
         }
         else
         {
