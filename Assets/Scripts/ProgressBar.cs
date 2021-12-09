@@ -10,7 +10,7 @@ public class ProgressBar : MonoBehaviour
     public TMP_Text progressText;
     public GameObject PopupWin;
     public GameObject PopupLose;
-    public bool check = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +24,15 @@ public class ProgressBar : MonoBehaviour
     {
         slider.value = Code.Instance.netWorth;
         progressText.text = "CASH: " + Code.Instance.cash + "\n NET WORTH GOAL: " + Code.Instance.netWorth + "/" + slider.maxValue;
-        if (Code.Instance.netWorth >= slider.maxValue & check == false)
+        if (Code.Instance.netWorth >= slider.maxValue)
         {
             PopupWin.SetActive(true);
-            check = true;
+            
         }
-        else if (Code.Instance.netWorth <= 0 & check == false)
+        else if (Code.Instance.netWorth <= 0)
         {
             PopupLose.SetActive(true);
-            check = true;
+            
         }
     }
 }

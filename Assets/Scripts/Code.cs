@@ -31,6 +31,8 @@ public class Code : MonoBehaviour
     public GameObject companyAInfo;
     public GameObject companyBInfo;
     public GameObject companyCInfo;
+    public GameObject Helper;
+
 
 
     // singleton that other classes can take variables from
@@ -54,16 +56,33 @@ public class Code : MonoBehaviour
         companyCInfo.SetActive(false);
         StockFluctuations.RemoveAt(0);
         StockValue.RemoveAt(0);
+        HelperSystem();
         calculateEarnings();
         daysPassed += 1;
         Date.GetComponent<TextMeshProUGUI>().SetText("DATE: " + daysPassed);
         Notifications.Instance.OpenNotif();
+    }
 
+    public void HelperSystem()
+    {
+        float xPos = Random.Range(-7f, 6f);
+        float yPos = Random.Range(2.45f, -2.3f);
+        Vector2 position = new Vector2(xPos, yPos);
+        float i = Random.Range(1, 3);
+        if (i == 1)
+        {
+            Helper.SetActive(true);
+            Helper.transform.position = position;
+        }
+        else
+        {
+            Helper.SetActive(false);
+        }
     }
 
 
     // function that updates networth;
-    void calculateEarnings()
+    public void calculateEarnings()
     {
 
         //here

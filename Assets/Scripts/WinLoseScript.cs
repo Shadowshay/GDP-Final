@@ -25,10 +25,22 @@ public class WinLoseScript : MonoBehaviour
     public void WinPopup()
     {
         PopupWin.SetActive(false);
+        Code.Instance.cash = 1000;
+        Code.Instance.netWorth = 1000;
+        Code.Instance.daysPassed = 0;
+        Code.Instance.goodStock = 0;
+        Code.Instance.badStock = 0;
+        Code.Instance.averageStock = 0;
     }
 
     public void LosePopup()
     {
         PopupLose.SetActive(false);
+        Code.Instance.cash = 1000;
+        Code.Instance.netWorth = 1000;
+        Code.Instance.daysPassed = 0;
+        Code.Instance.goodStock = 0;
+        Code.Instance.badStock = 0;
+        Code.Instance.averageStock = 0;
     }
 }
