@@ -98,7 +98,7 @@ public class BuySell : MonoBehaviour
     }
     public void SellBadStock()
     {
-        if (Code.Instance.averageStock > 0)
+        if (Code.Instance.badStock > 0)
         {
             Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
             Code.Instance.cash += Code.Instance.StockValue2[9];

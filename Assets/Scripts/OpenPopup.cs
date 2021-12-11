@@ -101,7 +101,7 @@ public class OpenPopup : MonoBehaviour
 
                 firstTimeAverage = false;
             }
-            if (gameObject.name == "Company C" && firstTimeAverage == false)
+            if (gameObject.name == "Company B" && firstTimeAverage == false)
             {
 
                 for (int i = 0; i <= 9; i++)
