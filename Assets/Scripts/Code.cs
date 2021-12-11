@@ -8,7 +8,7 @@ public class Code : MonoBehaviour
     public static Code Instance { get; private set; }
 
 
-    public int luckMultiplier = 11;
+    public int luckMultiplier = 10;
 
     public float cash = 1000;
     public float netWorth = 1000; 
@@ -21,12 +21,20 @@ public class Code : MonoBehaviour
     public int averageStock = 0;
 
     // value of stock 
-    public float goodStockValue = 750;
-    public float badStockValue = 1000;
-    public float averageStockValue = 800;
+    public float goodStockValue = 200;
+    public float badStockValue = 400;
+    public float averageStockValue = 300;
     // value of stock past 10 days (Good Company)
     public List<float> StockValue  = new List<float>();
     public List<float> StockFluctuations = new List<float>();
+
+    // value of stock past 10 days (Average Company)
+    public List<float> StockValue1 = new List<float>();
+    public List<float> StockFluctuations1 = new List<float>();
+
+    // value of stock past 10 days (Bad Company)
+    public List<float> StockValue2 = new List<float>();
+    public List<float> StockFluctuations2 = new List<float>();
 
     public GameObject companyAInfo;
     public GameObject companyBInfo;
@@ -54,14 +62,35 @@ public class Code : MonoBehaviour
         companyAInfo.SetActive(false);
         companyBInfo.SetActive(false);
         companyCInfo.SetActive(false);
-        StockFluctuations.RemoveAt(0);
-        StockValue.RemoveAt(0);
-        HelperSystem();
+
+        if (StockFluctuations.Count != 0)
+        {
+            StockFluctuations.RemoveAt(0);
+            StockValue.RemoveAt(0);
+        }
+        if (StockFluctuations1.Count != 0)
+        {
+            StockFluctuations1.RemoveAt(0);
+            StockValue1.RemoveAt(0);
+        }
+        if (StockFluctuations2.Count != 0)
+        {
+            StockFluctuations2.RemoveAt(0);
+            StockValue2.RemoveAt(0);
+        }
+
+
+        //HelperSystem();
+
+
         calculateEarnings();
         daysPassed += 1;
         Date.GetComponent<TextMeshProUGUI>().SetText("DATE: " + daysPassed);
-        Notifications.Instance.OpenNotif();
+        
+        
+        //Notifications.Instance.OpenNotif();
     }
+
 
     public void HelperSystem()
     {
@@ -89,39 +118,90 @@ public class Code : MonoBehaviour
         float change = RandomEvents.Instance.returnEffectOnStock();
         Debug.Log(RandomEvents.Instance.eventID);
 
-        if (Random.Range(1, 6) > 2)
+
+            if (Random.Range(1, 6) > 2)
+            {
+                float increase = Random.Range(1, luckMultiplier + 1) / 100f * goodStockValue;
+                increase = Mathf.Round(increase * 10f) / 10f;
+                increase += change;
+                goodStockValue += increase;
+                goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
+
+                StockValue.Add(goodStockValue);
+                StockFluctuations.Add(increase);
+                netWorth += increase * goodStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+
+            else
+            {
+                float decrease = -Random.Range(1, luckMultiplier + 1) / 100f * goodStockValue;
+                decrease = Mathf.Round(decrease * 10f) / 10f;
+                decrease += change;
+                goodStockValue += decrease;
+                goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
+
+                StockValue.Add(goodStockValue);
+                StockFluctuations.Add(decrease);
+                netWorth += (decrease) * goodStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+
+
+            if (Random.Range(1, 3) > 1)
+            {
+                float increase = Random.Range(1, luckMultiplier + 1) / 100f * averageStockValue;
+                increase = Mathf.Round(increase * 10f) / 10f;
+                increase += change;
+                averageStockValue += increase;
+                averageStockValue = Mathf.Round(averageStockValue * 10f) / 10f;
+
+                StockValue1.Add(averageStockValue);
+                StockFluctuations1.Add(increase);
+                netWorth += increase * averageStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+            else
+            {
+                float decrease = -Random.Range(1, luckMultiplier + 1) / 100f * averageStockValue;
+                decrease = Mathf.Round(decrease * 10f) / 10f;
+                decrease += change;
+                averageStockValue += decrease;
+                averageStockValue = Mathf.Round(averageStockValue * 10f) / 10f;
+
+                StockValue1.Add(averageStockValue);
+                StockFluctuations1.Add(decrease);
+                netWorth += (decrease) * averageStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+
+        if (Random.Range(1, 6) > 3)
         {
-            float increase = Random.Range(1, luckMultiplier) / 100f * goodStockValue;
+            float increase = Random.Range(1, luckMultiplier + 1) / 100f * badStockValue;
             increase = Mathf.Round(increase * 10f) / 10f;
             increase += change;
-            goodStockValue += increase;
-            goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
+            badStockValue += increase;
+            badStockValue = Mathf.Round(badStockValue * 10f) / 10f;
 
-            StockValue.Add(goodStockValue);
-            StockFluctuations.Add(increase);
-            netWorth += increase * goodStock ;
+            StockValue2.Add(badStockValue);
+            StockFluctuations2.Add(increase);
+            netWorth += increase * badStock;
             netWorth = Mathf.Round(netWorth * 10f) / 10f;
         }
+
         else
         {
-            float decrease = -Random.Range(1, luckMultiplier) / 100f * goodStockValue;
+            float decrease = -Random.Range(1, luckMultiplier + 1) / 100f * badStockValue;
             decrease = Mathf.Round(decrease * 10f) / 10f;
             decrease += change;
-            goodStockValue += decrease;
-            goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
+            badStockValue += decrease;
+            badStockValue = Mathf.Round(badStockValue * 10f) / 10f;
 
-            StockValue.Add(goodStockValue);
-            StockFluctuations.Add(decrease);
+            StockValue2.Add(badStockValue);
+            StockFluctuations2.Add(decrease);
             netWorth += (decrease) * goodStock;
-            netWorth = Mathf.Round(netWorth * 10f) / 10f;
         }
-
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
