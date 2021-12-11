@@ -199,7 +199,8 @@ public class Code : MonoBehaviour
 
             StockValue2.Add(badStockValue);
             StockFluctuations2.Add(decrease);
-            netWorth += (decrease) * goodStock;
+            netWorth += (decrease) * badStock;
+            netWorth = Mathf.Round(netWorth * 10f) / 10f;
         }
     }
 

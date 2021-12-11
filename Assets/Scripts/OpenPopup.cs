@@ -6,12 +6,14 @@ using System;
 public class OpenPopup : MonoBehaviour
 {
     public GameObject PopupPanel;
-    
+    bool firstTimeGood = true;
+    bool firstTimeAverage = true;
+    bool firstTimeBad = true;
     public void OpenPanel()
     {
         if (PopupPanel != null)
         {
-            if (gameObject.name == "Company A" && Code.Instance.daysPassed == 0)
+            if (gameObject.name == "Company A" && firstTimeGood == true)
             {
                 
                 for (int i = 0; i <= 9; i++)
@@ -32,6 +34,7 @@ public class OpenPopup : MonoBehaviour
                         Code.Instance.StockFluctuations.Add(increase);
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(2).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockValue[i].ToString());
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(3).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockFluctuations[i].ToString());
+                        
                     }
                     else
                     {
@@ -43,10 +46,15 @@ public class OpenPopup : MonoBehaviour
                         Code.Instance.StockFluctuations.Add(decrease);
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(2).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockValue[i].ToString());
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(3).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockFluctuations[i].ToString());
+
                     }
+
+
                 }
+
+                firstTimeGood = false;
             }
-            if (gameObject.name == "Company A" && Code.Instance.daysPassed > 0)
+            if (gameObject.name == "Company A" && firstTimeGood == false)
             {
 
                 for (int i = 0; i <= 9; i++)
@@ -56,7 +64,7 @@ public class OpenPopup : MonoBehaviour
                 }
             }
 
-            if (gameObject.name == "Company B" && Code.Instance.daysPassed == 0)
+            if (gameObject.name == "Company B" && firstTimeAverage == true)
             {
 
                 for (int i = 0; i <= 9; i++)
@@ -90,8 +98,10 @@ public class OpenPopup : MonoBehaviour
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(3).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockFluctuations1[i].ToString());
                     }
                 }
+
+                firstTimeAverage = false;
             }
-            if (gameObject.name == "Company C" && Code.Instance.daysPassed > 0)
+            if (gameObject.name == "Company C" && firstTimeAverage == false)
             {
 
                 for (int i = 0; i <= 9; i++)
@@ -101,7 +111,7 @@ public class OpenPopup : MonoBehaviour
                 }
             }
 
-            if (gameObject.name == "Company C" && Code.Instance.daysPassed == 0)
+            if (gameObject.name == "Company C" && firstTimeBad == true)
             {
 
                 for (int i = 0; i <= 9; i++)
@@ -135,14 +145,15 @@ public class OpenPopup : MonoBehaviour
                         PopupPanel.gameObject.transform.GetChild(2).GetChild(3).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockFluctuations2[i].ToString());
                     }
                 }
+                firstTimeBad = false;
             }
-            if (gameObject.name == "Company B" && Code.Instance.daysPassed > 0)
+            if (gameObject.name == "Company C" && firstTimeBad == false)
             {
 
                 for (int i = 0; i <= 9; i++)
                 {
-                    PopupPanel.gameObject.transform.GetChild(2).GetChild(2).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockValue1[i].ToString());
-                    PopupPanel.gameObject.transform.GetChild(2).GetChild(3).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockFluctuations1[i].ToString());
+                    PopupPanel.gameObject.transform.GetChild(2).GetChild(2).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockValue2[i].ToString());
+                    PopupPanel.gameObject.transform.GetChild(2).GetChild(3).GetChild(i).gameObject.GetComponent<TextMeshProUGUI>().SetText(Code.Instance.StockFluctuations2[i].ToString());
                 }
             }
 
