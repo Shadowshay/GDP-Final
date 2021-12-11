@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3abc1e0c117183b4eb76d54bcc0ee695, type: 3}
+  m_Name: Negative Event 1
+  m_EditorClassIdentifier: 
+  EventID: 71
+  Description: There's been new developments in the USA. With another change in leadership,
+    distrust in the government has led to one of the worst recessions in recent memory.
+    Stocks world wide have crashed dramatically.
+  EffectOnStock: -50
+  EffectOnCash: 0
