@@ -87,7 +87,12 @@ public class Code : MonoBehaviour
         daysPassed += 1;
         Date.GetComponent<TextMeshProUGUI>().SetText("DATE: " + daysPassed);
         
-        
+        if(netWorth >= 1000)
+        {
+            Achievement.Instance.Stonks = true;
+            Achievement.Instance.gameObject.transform.GetChild(3).gameObject.SetActive(false);
+            Achievement.Instance.gameObject.transform.GetChild(4).gameObject.SetActive(true);
+        }
         //Notifications.Instance.OpenNotif();
     }
 
@@ -160,7 +165,7 @@ public class Code : MonoBehaviour
                 StockFluctuations1.Add(increase);
                 netWorth += increase * averageStock;
                 netWorth = Mathf.Round(netWorth * 10f) / 10f;
-            }
+        }
             else
             {
                 float decrease = -Random.Range(1, luckMultiplier + 1) / 100f * averageStockValue;
@@ -187,6 +192,7 @@ public class Code : MonoBehaviour
             StockFluctuations2.Add(increase);
             netWorth += increase * badStock;
             netWorth = Mathf.Round(netWorth * 10f) / 10f;
+
         }
 
         else
