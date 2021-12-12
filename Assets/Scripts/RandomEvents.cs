@@ -10,7 +10,7 @@ public class RandomEvents : MonoBehaviour
 	public int eventID;
 	public string eventDisc;
 	private int ID;
-	private float returnValue;
+	public float returnValue;
 	//public GameObject Notification;
 
 	// singleton that other classes can take variables from

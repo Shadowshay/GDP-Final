@@ -36,7 +36,7 @@ public class Notifications : MonoBehaviour
 
     public void OpenNotif()
     {
-        if (RandomEvents.Instance.eventDisc != "")
+        if (RandomEvents.Instance.returnValue != 0)
         {
             notifScreen.SetActive(true);
             notifScreen.gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().SetText(RandomEvents.Instance.eventDisc);
