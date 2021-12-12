@@ -8267,6 +8267,7 @@ GameObject:
   - component: {fileID: 459327192}
   - component: {fileID: 459327194}
   - component: {fileID: 459327193}
+  - component: {fileID: 459327195}
   m_Layer: 5
   m_Name: Notification Screen
   m_TagString: Untagged
@@ -8334,6 +8335,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459327191}
   m_CullTransparentMesh: 1
+--- !u!114 &459327195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459327191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145fb60691532c6469f66e28db9b678a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PopupPanel: {fileID: 459327191}
 --- !u!1 &461098932
 GameObject:
   m_ObjectHideFlags: 0
@@ -30527,9 +30541,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Notifications, Assembly-CSharp
-        m_MethodName: CloseNotif
+      - m_Target: {fileID: 459327195}
+        m_TargetAssemblyTypeName: ClosePopup, Assembly-CSharp
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

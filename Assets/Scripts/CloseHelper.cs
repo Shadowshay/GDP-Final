@@ -20,7 +20,7 @@ public class CloseHelper : MonoBehaviour
     }
     public void Close()
     {
-        float value = Random.Range(10, 100);
+        float value = Random.Range(10, 51);
         Helper.SetActive(false);
         Code.Instance.cash += value;
         Code.Instance.netWorth += value;
