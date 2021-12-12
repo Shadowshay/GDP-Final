@@ -88,7 +88,7 @@ public class BuySell : MonoBehaviour
         {
             Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
             Code.Instance.cash += Code.Instance.StockValue1[9];
-            Code.Instance.goodStock--;
+            Code.Instance.averageStock--;
             Code.Instance.nextDay();
         }
         else

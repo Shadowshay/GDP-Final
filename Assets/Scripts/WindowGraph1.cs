@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WindowGraph : MonoBehaviour
+public class WindowGraph1 : MonoBehaviour
 {
     public static WindowGraph Instance { get; private set; }
 
@@ -30,14 +30,14 @@ public class WindowGraph : MonoBehaviour
 
 
 
-        ShowGraph(Code.Instance.StockValue, (int _i) => "Day " + (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
+        ShowGraph(Code.Instance.StockValue1, (int _i) => "Day " + (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
 
     }
 
-    public void showGraphForA()
+    public void showGraphForB()
     {
         // show graph for company A
-        ShowGraph(Code.Instance.StockValue, (int _i) => "Day " + (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
+        ShowGraph(Code.Instance.StockValue1, (int _i) => "Day " + (_i + (-9)), (float _f) => "$" + Mathf.RoundToInt(_f));
     }
 
 

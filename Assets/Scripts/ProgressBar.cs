@@ -10,7 +10,14 @@ public class ProgressBar : MonoBehaviour
     public TMP_Text progressText;
     public GameObject PopupWin;
     public GameObject PopupLose;
-    
+
+    public GameObject achievementDoneWinGame;
+    public GameObject achievementUndoneWinGame;
+    public GameObject achievementDoneLoseGame;
+    public GameObject achievementUndoneLoseGame;
+    public GameObject achievementDoneSpeedRunner;
+    public GameObject achievementUndoneSpeedRunner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +37,14 @@ public class ProgressBar : MonoBehaviour
 
             Achievement.Instance.winGame = true;
 
-            Achievement.Instance.gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            Achievement.Instance.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            achievementDoneWinGame.SetActive(true);
+            achievementUndoneWinGame.SetActive(false);
 
             if (Code.Instance.daysPassed <= 10)
             {
                 Achievement.Instance.speedRunner = true;
-                Achievement.Instance.gameObject.transform.GetChild(7).gameObject.SetActive(false);
-                Achievement.Instance.gameObject.transform.GetChild(8).gameObject.SetActive(true);
+                achievementDoneSpeedRunner.SetActive(true);
+                achievementUndoneSpeedRunner.SetActive(false);
             }
             
         }
@@ -45,8 +52,8 @@ public class ProgressBar : MonoBehaviour
         {
             PopupLose.SetActive(true);
             Achievement.Instance.loseGame = true;
-            Achievement.Instance.gameObject.transform.GetChild(5).gameObject.SetActive(false);
-            Achievement.Instance.gameObject.transform.GetChild(6).gameObject.SetActive(true);
+            achievementDoneLoseGame.SetActive(true);
+            achievementUndoneLoseGame.SetActive(false);
         }
     }
 }
