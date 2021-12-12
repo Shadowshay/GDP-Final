@@ -3657,8 +3657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.06000042, y: 0.10999966}
-  m_SizeDelta: {x: 20, y: 10}
+  m_AnchoredPosition: {x: 0.10999966, y: -0.15}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459327193
 MonoBehaviour:
@@ -4544,6 +4544,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73f022c9f07960947a01cf3db8f2a7aa, type: 2}
   - {fileID: 11400000, guid: 240acae2e072988458c6fd0d3ac82d44, type: 2}
   - {fileID: 11400000, guid: 8fd0efdb4ee781844b4e76ad86456c3c, type: 2}
+  - {fileID: 11400000, guid: 8be9502e2dc0f804094f03e6b5edbd7f, type: 2}
+  - {fileID: 11400000, guid: 3a92b53b11748c2419b0b58244258784, type: 2}
+  - {fileID: 11400000, guid: 8d966955aa08eae46849c0acd881f6a7, type: 2}
   eventID: 0
   eventDisc: 
   returnValue: 0
@@ -4560,7 +4563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notifScreen: {fileID: 459327191}
-  achievementScreen: {fileID: 0}
+  achievementScreen: {fileID: 478339680}
 --- !u!1 &533675091
 GameObject:
   m_ObjectHideFlags: 0
