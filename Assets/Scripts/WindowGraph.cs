@@ -80,7 +80,6 @@ public class WindowGraph : MonoBehaviour
         float yMinimum = valueList[0];
         foreach (int value in valueList)
         {
-            Debug.Log("bruh" + value);
             if (value > yMaximum)
             {
                 yMaximum = value;

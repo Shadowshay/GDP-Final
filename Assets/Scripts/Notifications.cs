@@ -36,13 +36,6 @@ public class Notifications : MonoBehaviour
 		
 	}
 
-	public void CheckAchievements()
-	{
-		if (Achievement.Instance.winGame == true || Achievement.Instance.Stonks == true || Achievement.Instance.loseGame == true || Achievement.Instance.speedRunner == true)
-		{
-			achievementScreen.SetActive(true);
-		}
-	}
 
 	public void OpenNotif()
 	{

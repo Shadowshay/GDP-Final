@@ -66,9 +66,12 @@ public class WindowGraph2 : MonoBehaviour
             getAxisLabelY = delegate (float _f) { return Mathf.RoundToInt(_f).ToString(); };
         }
 
-        foreach (GameObject graphObject in gameObjectList)
+        if (gameObjectList.Count > 0)
         {
-            Destroy(graphObject);
+            foreach (GameObject graphObject in gameObjectList)
+            {
+                Destroy(graphObject);
+            }
         }
         gameObjectList.Clear();
 
@@ -77,7 +80,6 @@ public class WindowGraph2 : MonoBehaviour
         float yMinimum = valueList[0];
         foreach (int value in valueList)
         {
-            Debug.Log("bruh" + value);
             if (value > yMaximum)
             {
                 yMaximum = value;

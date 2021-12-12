@@ -96,7 +96,7 @@ public class Code : MonoBehaviour
             achievementUndoneStonks.SetActive(false);
         }
         Notifications.Instance.OpenNotif();
-        Notifications.Instance.CheckAchievements();
+
     }
 
 

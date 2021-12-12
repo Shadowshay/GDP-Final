@@ -24,23 +24,36 @@ public class WinLoseScript : MonoBehaviour
 
     public void WinPopup()
     {
-        PopupWin.SetActive(false);
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+
+        //Resources.UnloadUnusedAssets();
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         Code.Instance.cash = 1000;
         Code.Instance.netWorth = 1000;
         Code.Instance.daysPassed = 0;
         Code.Instance.goodStock = 0;
         Code.Instance.badStock = 0;
         Code.Instance.averageStock = 0;
+        PopupWin.SetActive(false);
+
     }
+
 
     public void LosePopup()
     {
-        PopupLose.SetActive(false);
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+
+        //Resources.UnloadUnusedAssets();
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+
         Code.Instance.cash = 1000;
         Code.Instance.netWorth = 1000;
         Code.Instance.daysPassed = 0;
         Code.Instance.goodStock = 0;
         Code.Instance.badStock = 0;
         Code.Instance.averageStock = 0;
+        PopupLose.SetActive(false);
     }
 }
