@@ -29,7 +29,7 @@ public class ProgressBar : MonoBehaviour
             PopupWin.SetActive(true);
             
         }
-        else if (Code.Instance.netWorth <= 300)
+        else if (Code.Instance.netWorth <= 0)
         {
             PopupLose.SetActive(true);
             
