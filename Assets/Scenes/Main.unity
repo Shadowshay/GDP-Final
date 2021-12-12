@@ -9780,6 +9780,10 @@ MonoBehaviour:
   averageStockValue: 800
   StockValue: []
   StockFluctuations: []
+  StockValue1: []
+  StockFluctuations1: []
+  StockValue2: []
+  StockFluctuations2: []
   companyAInfo: {fileID: 0}
   companyBInfo: {fileID: 0}
   companyCInfo: {fileID: 0}
@@ -9950,7 +9954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notifScreen: {fileID: 459327191}
-  achievementScreen: {fileID: 0}
+  achievementScreen: {fileID: 271861542}
 --- !u!1 &569300005
 GameObject:
   m_ObjectHideFlags: 0

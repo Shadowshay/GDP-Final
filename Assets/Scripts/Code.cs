@@ -93,7 +93,8 @@ public class Code : MonoBehaviour
             Achievement.Instance.gameObject.transform.GetChild(3).gameObject.SetActive(false);
             Achievement.Instance.gameObject.transform.GetChild(4).gameObject.SetActive(true);
         }
-        //Notifications.Instance.OpenNotif();
+        Notifications.Instance.OpenNotif();
+        Notifications.Instance.CheckAchievements();
     }
 
 
