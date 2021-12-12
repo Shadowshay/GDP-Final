@@ -60,7 +60,13 @@ public class Code : MonoBehaviour
         calculateEarnings();
         daysPassed += 1;
         Date.GetComponent<TextMeshProUGUI>().SetText("DATE: " + daysPassed);
+<<<<<<< HEAD
         Notifications.Instance.OpenNotif();
+=======
+        
+        
+        //Notifications.Instance.OpenNotif();
+>>>>>>> parent of 2d0ffaa (achievements code added and ui fixed)
     }
 
     public void HelperSystem()
@@ -89,7 +95,68 @@ public class Code : MonoBehaviour
         float change = RandomEvents.Instance.returnEffectOnStock();
         Debug.Log(RandomEvents.Instance.eventID);
 
+<<<<<<< HEAD
         if (Random.Range(1, 6) > 2)
+=======
+
+            if (Random.Range(1, 6) > 2)
+            {
+                float increase = Random.Range(1, luckMultiplier + 1) / 100f * goodStockValue;
+                increase = Mathf.Round(increase * 10f) / 10f;
+                increase += change;
+                goodStockValue += increase;
+                goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
+
+                StockValue.Add(goodStockValue);
+                StockFluctuations.Add(increase);
+                netWorth += increase * goodStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+
+            else
+            {
+                float decrease = -Random.Range(1, luckMultiplier + 1) / 100f * goodStockValue;
+                decrease = Mathf.Round(decrease * 10f) / 10f;
+                decrease += change;
+                goodStockValue += decrease;
+                goodStockValue = Mathf.Round(goodStockValue * 10f) / 10f;
+
+                StockValue.Add(goodStockValue);
+                StockFluctuations.Add(decrease);
+                netWorth += (decrease) * goodStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+
+
+            if (Random.Range(1, 3) > 1)
+            {
+                float increase = Random.Range(1, luckMultiplier + 1) / 100f * averageStockValue;
+                increase = Mathf.Round(increase * 10f) / 10f;
+                increase += change;
+                averageStockValue += increase;
+                averageStockValue = Mathf.Round(averageStockValue * 10f) / 10f;
+
+                StockValue1.Add(averageStockValue);
+                StockFluctuations1.Add(increase);
+                netWorth += increase * averageStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+            else
+            {
+                float decrease = -Random.Range(1, luckMultiplier + 1) / 100f * averageStockValue;
+                decrease = Mathf.Round(decrease * 10f) / 10f;
+                decrease += change;
+                averageStockValue += decrease;
+                averageStockValue = Mathf.Round(averageStockValue * 10f) / 10f;
+
+                StockValue1.Add(averageStockValue);
+                StockFluctuations1.Add(decrease);
+                netWorth += (decrease) * averageStock;
+                netWorth = Mathf.Round(netWorth * 10f) / 10f;
+            }
+
+        if (Random.Range(1, 6) > 3)
+>>>>>>> parent of 2d0ffaa (achievements code added and ui fixed)
         {
             float increase = Random.Range(1, luckMultiplier) / 100f * goodStockValue;
             increase = Mathf.Round(increase * 10f) / 10f;
