@@ -32,6 +32,40 @@ public class BuySell : MonoBehaviour
 
     }
 
+    public void BuyAverageStock()
+    {
+
+        if (Code.Instance.cash < Code.Instance.StockValue1[9])
+        {
+            PopupBuyPanel();
+        }
+        else
+        {
+            Code.Instance.cash -= Code.Instance.StockValue1[9];
+            Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
+            Code.Instance.averageStock++;
+            Code.Instance.nextDay();
+        }
+
+    }
+
+    public void BuyBadStock()
+    {
+
+        if (Code.Instance.cash < Code.Instance.StockValue2[9])
+        {
+            PopupBuyPanel();
+        }
+        else
+        {
+            Code.Instance.cash -= Code.Instance.StockValue2[9];
+            Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
+            Code.Instance.badStock++;
+            Code.Instance.nextDay();
+        }
+
+    }
+
     //Call function after sell button is clicked
     public void SellGoodStock()
     {
@@ -40,6 +74,35 @@ public class BuySell : MonoBehaviour
             Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
             Code.Instance.cash += Code.Instance.StockValue[9];
             Code.Instance.goodStock--;
+            Code.Instance.nextDay();
+        }
+        else
+        {
+            PopupSellPanel();
+        }
+    }
+
+    public void SellAverageStock()
+    {
+        if (Code.Instance.averageStock > 0)
+        {
+            Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
+            Code.Instance.cash += Code.Instance.StockValue1[9];
+            Code.Instance.goodStock--;
+            Code.Instance.nextDay();
+        }
+        else
+        {
+            PopupSellPanel();
+        }
+    }
+    public void SellBadStock()
+    {
+        if (Code.Instance.badStock > 0)
+        {
+            Code.Instance.cash = Mathf.Round(Code.Instance.cash * 10f) / 10f;
+            Code.Instance.cash += Code.Instance.StockValue2[9];
+            Code.Instance.badStock--;
             Code.Instance.nextDay();
         }
         else
