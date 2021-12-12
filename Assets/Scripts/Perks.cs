@@ -31,14 +31,13 @@ public class Perks : MonoBehaviour
 
     public void gamblersLuck()
     {
-        bool bought = false;
-        if (Code.Instance.cash>= 500 && bought == false) 
+
+        if (Code.Instance.cash>= 500) 
         { 
         Code.Instance.luckMultiplier = 15;
             Code.Instance.cash -= 500f;
             Code.Instance.netWorth -= 500f;
             PerkGamblersLuck.SetActive(false);
-            bought = true;
         }
         else
         {
@@ -48,15 +47,15 @@ public class Perks : MonoBehaviour
 
     public void buyInsurance()
     {
-        bool bought = false;
 
-        if (Code.Instance.cash >= 500 && bought == false)
+
+        if (Code.Instance.cash >= 500)
         {
             hasInsurance = true;
             Code.Instance.cash -= 500f;
             Code.Instance.netWorth -= 500f;
             PerkInsurance.SetActive(false);
-            bought = true;
+
         }
         else
         {
@@ -66,14 +65,14 @@ public class Perks : MonoBehaviour
 
     public void investingKnowledge()
     {
-        bool bought = false;
-        if (Code.Instance.cash >= 500 && bought == false)
+
+        if (Code.Instance.cash >= 500)
         {
             companyC.SetActive(false);
             Code.Instance.cash -= 500f;
             Code.Instance.netWorth -= 500f;
             PerkInvestingKnowledge.SetActive(false);
-            bought = true;
+
         }
         else
         {

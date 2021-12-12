@@ -27,12 +27,26 @@ public class ProgressBar : MonoBehaviour
         if (Code.Instance.netWorth >= slider.maxValue)
         {
             PopupWin.SetActive(true);
+
+            Achievement.Instance.winGame = true;
+
+            Achievement.Instance.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            Achievement.Instance.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+
+            if (Code.Instance.daysPassed <= 10)
+            {
+                Achievement.Instance.speedRunner = true;
+                Achievement.Instance.gameObject.transform.GetChild(7).gameObject.SetActive(false);
+                Achievement.Instance.gameObject.transform.GetChild(8).gameObject.SetActive(true);
+            }
             
         }
         else if (Code.Instance.netWorth <= 300)
         {
             PopupLose.SetActive(true);
-            
+            Achievement.Instance.loseGame = true;
+            Achievement.Instance.gameObject.transform.GetChild(5).gameObject.SetActive(false);
+            Achievement.Instance.gameObject.transform.GetChild(6).gameObject.SetActive(true);
         }
     }
 }
