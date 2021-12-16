@@ -9,6 +9,10 @@ public class Notifications : MonoBehaviour
 	public static Notifications Instance { get; private set; }
 	public GameObject notifScreen;
 	public GameObject achievementScreen;
+	private int winGameCount;
+	private int loseGameCount;
+	private int speedRunnerCount;
+	private int stonksCount;
 
 	private void Awake()
 	{
@@ -28,7 +32,11 @@ public class Notifications : MonoBehaviour
 	{
 		notifScreen.SetActive(false);
 		achievementScreen.SetActive(false);
-	}
+		winGameCount = 0;
+		loseGameCount = 0;
+		speedRunnerCount = 0;
+		stonksCount = 0;
+}
 
 	// Update is called once per frame
 	void Update()
@@ -48,6 +56,30 @@ public class Notifications : MonoBehaviour
 		{
 			notifScreen.gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().SetText("");
 			notifScreen.SetActive(false);
+		}
+
+        if (Achievement.Instance.winGame == true && winGameCount == 0)
+        {
+			achievementScreen.SetActive(true);
+			winGameCount = winGameCount + 1;
+        }
+
+		if (Achievement.Instance.loseGame == true && loseGameCount == 0)
+		{
+			achievementScreen.SetActive(true);
+			loseGameCount = loseGameCount + 1;
+		}
+
+		if (Achievement.Instance.speedRunner == true && speedRunnerCount == 0)
+		{
+			achievementScreen.SetActive(true);
+			speedRunnerCount = speedRunnerCount + 1;
+		}
+
+		if (Achievement.Instance.Stonks == true && stonksCount == 0)
+		{
+			achievementScreen.SetActive(true);
+			stonksCount = stonksCount + 1;
 		}
 	}
 
